@@ -1,21 +1,42 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Calculator</title>
-</head>
-<body>
-  <h1>Calculator</h1>
+	<head>
+		<meta charset="utf-8" />
+		<title>Calculator</title>
+		<style>
+			body { font-family: Arial, sans-serif; padding: 20px; }
+			input, select, button { margin: 6px 4px; padding: 6px; font-size: 16px; }
+			#result { margin-top: 12px; font-weight: bold; }
+		</style>
+	</head>
+	<body>
+		<h1>Calculator</h1>
 
-  <input id="num1" type="number" placeholder="First Number">
-  <input id="num2" type="number" placeholder="Second Number">
+		<!-- Legacy two-number UI (keeps current behaviour) -->
+		<input id="num1" type="number" placeholder="First Number" />
+		<input id="num2" type="number" placeholder="Second Number" />
 
-  <button onclick="add()">Add</button>
-  <button onclick="subtract()">Subtract</button>
-  <button onclick="multiply()">Multiply</button>
-  <button onclick="divide()">Divide</button>
+		<button id="btnAdd">Add</button>
+		<button id="btnSub">Subtract</button>
+		<button id="btnMul">Multiply</button>
+		<button id="btnDiv">Divide</button>
 
-  <h3 id="result"></h3>
+		<hr />
 
-  <script src="script.js"></script>
-</body>
+		<!-- Expression mode: accepts "5 + 4", "10-6", "7×3", "12 ÷ 4", "5.5 + 2.2" -->
+		<label for="expr"
+			>Or type an expression (e.g. <code>5 + 4</code>):</label
+		><br />
+		<input
+			id="expr"
+			type="text"
+			placeholder="e.g. 5 + 4"
+			style="width:260px"
+		/>
+		<button id="btnExpr">Calculate Expression</button>
+
+		<h3 id="result">Result: <span id="resultVal"></span></h3>
+
+		<script src="script.js"></script>
+	</body>
 </html>
